@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "terraform_practice" {
+resource "azurerm_resource_group" "resourcegroup" {
   name     = "wp-rg"
-  location = var.loc
+  location = "East US"
 }

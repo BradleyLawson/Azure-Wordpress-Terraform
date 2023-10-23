@@ -9,9 +9,9 @@ data "azurerm_mysql_flexible_server" "database" {
 
 resource "azurerm_private_endpoint" "wp-PE2" {
   name                = "wp-PE2"
-  location            = var.loc
-  resource_group_name = var.rg
-  subnet_id           = var.sn2id
+  location            = azurerm_resource_group.resourcegroup.location
+  resource_group_name = azurerm_resource_group.resourcegroup.name
+  subnet_id           = azurerm_subnet.sn-two.id
 
   private_service_connection {
     name                           = "wp-PE2-privateserviceconnection"
@@ -22,7 +22,7 @@ resource "azurerm_private_endpoint" "wp-PE2" {
 
   private_dns_zone_group {
     name                 = "wp-PE2-dns-zone-group"
-    private_dns_zone_ids = [privDNZ2id]
+    private_dns_zone_ids = [azurerm_private_dns_zone.wp-PE2.id]
   }
 }
 
