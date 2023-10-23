@@ -28,12 +28,12 @@ resource "azurerm_private_endpoint" "wp-PE2" {
 
 resource "azurerm_private_dns_zone" "wp-PE2" {
   name                = "privatelink.mysql.database.azure.com"
-  resource_group_name = var.rg
+  resource_group_name = azurerm_resource_group.resourcegroup.name
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "wp-PE2" {
   name                  = "wp-PE2-link"
-  resource_group_name   = var.rg
-  private_dns_zone_name = var.privDNZ2name
-  virtual_network_id    = var.vnetid
+  resource_group_name   = azurerm_resource_group.resourcegroup.name
+  private_dns_zone_name = azurerm_private_dns_zone.wp-PE2.name
+  virtual_network_id    = azurerm_virtual_network.wp-vnet.id
 }
