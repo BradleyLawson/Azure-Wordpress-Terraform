@@ -11,7 +11,7 @@ resource "azurerm_private_endpoint" "wp-PE2" {
   name                = "wp-PE2"
   location            = azurerm_resource_group.resourcegroup.location
   resource_group_name = azurerm_resource_group.resourcegroup.name
-  subnet_id           = azurerm_subnet.sn-two.id
+  subnet_id           = azurerm_subnet.sntwo.id
 
   private_service_connection {
     name                           = "wp-PE2-privateserviceconnection"
