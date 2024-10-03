@@ -4,8 +4,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "wpSS" {
   location                        = azurerm_resource_group.resourcegroup.name
   sku                             = "Standard_F2"
   instances                       = 2
-  admin_username                  = "adminuser"
-  admin_password                  = "P@ssw0rd1234!"
+  admin_username                  = "xxxxxxxxxxx"
+  admin_password                  = "xxxxxxxxxxx!"
   disable_password_authentication = true
 
   source_image_reference {
